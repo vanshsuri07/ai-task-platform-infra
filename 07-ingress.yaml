@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: aitask-ingress
+  namespace: aitask-namespace
+  annotations:
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    # Backend expects /api so we pass it without rewrites usually,
+    # or rewrite to /api via backend if needed.
+    # No rewrite target here so we preserve the path context.
+spec:
+  ingressClassName: nginx
+  rules:
+    - http:
+        paths:
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: backend
+                port:
+                  number: 5000
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: frontend
+                port:
+                  number: 5173

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: worker
+  namespace: aitask-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: worker
+  template:
+    metadata:
+      labels:
+        app: worker
+    spec:
+      containers:
+        - name: worker
+          image: vanshsuri07/aitask-worker:latest
+          imagePullPolicy: Always
+          envFrom:
+            - configMapRef:
+                name: aitask-config
