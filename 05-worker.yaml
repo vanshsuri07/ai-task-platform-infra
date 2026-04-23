@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: worker
-          image: vanshsuri07/ai-task-worker:683f0d8
+          image: vanshsuri07/ai-task-worker:641ab9c
           imagePullPolicy: Always
           envFrom:
             - configMapRef:

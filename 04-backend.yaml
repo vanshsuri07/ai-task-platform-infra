@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: vanshsuri07/ai-task-backend:683f0d8
+          image: vanshsuri07/ai-task-backend:641ab9c
           imagePullPolicy: Always
           ports:
             - containerPort: 5000
