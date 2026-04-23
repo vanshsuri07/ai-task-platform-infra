@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: vanshsuri07/ai-task-frontend:641ab9c
+          image: vanshsuri07/ai-task-frontend:d57be0c
           imagePullPolicy: Always
           ports:
             - containerPort: 5173
